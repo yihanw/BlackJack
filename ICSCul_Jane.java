@@ -1,8 +1,6 @@
 /*Jane Wang
-  ICS3U1_01
   Jun.2.2014
-  the program is a game calles black jack, it is a text-based on game, the aim of the game for the player is to get the closest number to 21,
-  but not exceed 21.*/
+  The program is the Black Jack card game written in JAVA*/
 // The "ICSCul_Jane" class.
 //http://www.egtry.com/java/awt/draw_save
 //http://www.javakode.com/applets/05-keyboardInput/
@@ -21,47 +19,47 @@ public class ICSCul_Jane
     public static void main (String[] args)
     {
 	c = new Console ();
+	// Place your program here.  'c' is the output console
 	String[] cardName = new String [52]; //card names
 	int[] cardPoint = new int [52]; //card points
 	String playerName; //player's name
 	double wager; //player's wager on the game
 
-	//ask about player's information
+	//Display basic information
 	c.println ("hello! welcome to the game of BLACK JACK!");
-	c.println ("this is a text-based on game");
-	c.println ("your rival is the computer");
-	c.println ("the aim of this game is to get the closest number to 21 without exceeding it");
-	c.println ("you can wage at the beginning of the game between 0 and 10");
+	c.println ("The aim of this game is to get the closest number to 21 without exceeding it");
+	c.println ("Your rival is the computer");
+	c.println ("You can wage at the beginning of the game between 0 and 10");
 
 	c.readChar ();
 	c.println ("what's your name,please?");
-	playerName = c.readLine (); //read in player's name
+	playerName = c.readLine (); 
 	c.println ();
 	c.println ("hello " + playerName + ", how much money would you like to get to wage?");
-	wager = c.readDouble (); //read in player's wager
-	while (wager < 0 || wager > 10) //focus player to enter a number between 0 and 10
+	wager = c.readDouble (); 
+	while (wager < 0 || wager > 10) //force to enter a number between 0 and 10
 	{
 	    c.println ("please enter a number between 0 and 10");
-	    wager = c.readDouble (); //read in player's wager
+	    wager = c.readDouble (); 
 	}
 	c.println ();
 	c.println ("the game starts, good luck!");
 	c.readChar ();
 
 	//initializes card names and card points
-	for (int i = 0 ; i < 13 ; i++) //cards of hearts
+	for (int i = 0 ; i < 13 ; i++) //Hearts
 	{
 	    cardName [i] = "heart " + (i + 1); //initializes card names
 	    if (i < 10) //initializes card points from ace to 10
 	    {
 		cardPoint [i] = i + 1;
 	    }
-	    if (i > 9 && i < 13) //initializes card points from jake to king
+	    if (i > 9 && i < 13) //initializes card points from Jake to King
 	    {
 		cardPoint [i] = 10;
 	    }
 	}
-	for (int i = 13 ; i < 26 ; i++) //cards of spade
+	for (int i = 13 ; i < 26 ; i++) //Spade
 	{
 	    cardName [i] = "spade " + (i - 12); //intializes card names
 	    if (i < 23) //initializes card points from ace to 10
@@ -73,7 +71,7 @@ public class ICSCul_Jane
 		cardPoint [i] = 10;
 	    }
 	}
-	for (int i = 26 ; i < 39 ; i++) //cards of club
+	for (int i = 26 ; i < 39 ; i++) //Club
 	{
 	    cardName [i] = "club " + (i - 25); //initializes card points from 1 to 10
 	    if (i < 36) //initializes card points from 1 to 10
@@ -85,7 +83,7 @@ public class ICSCul_Jane
 		cardPoint [i] = 10;
 	    }
 	}
-	for (int i = 39 ; i < 52 ; i++) //cards of diamond
+	for (int i = 39 ; i < 52 ; i++) //Diamond
 	{
 	    cardName [i] = "diamond " + (i - 38); //initializes card names
 	    if (i < 49) //initializes card points from ace to 10
@@ -99,19 +97,17 @@ public class ICSCul_Jane
 	}
 	gameProcess (cardName, cardPoint, wager); //call from the gameProcess method
 	c.println ();
-	// Place your program here.  'c' is the output console
     } // main method
-
 
     public static void gameProcess (String[] cardName, int[] cardPoint, double wager)
     {
 	String playerCard = ""; //store player's cards
 	String dealerCard = ""; //store dealer's cards
-	int cardNum = 52; //the number of the cards
+	int cardNum = 52;
 	String restCard[] = new String [(cardNum - 1)]; //store the rest cards, in order to give the player and the dealer a different card
 	int playerPoint = 0; //initializes palyer's point
 	int dealerPoint = 0; //initializes dealer's point
-	int randomNum; //a random number
+	int randomNum; 
 	char playerChoice; //player's chioce on wheather or not to recieve a card
 	char dealerChoice; //dealer's choice on wheather or not to recieve a card
 	char finalChoice; //choice on wheater or not to continue the game
@@ -208,6 +204,7 @@ public class ICSCul_Jane
 		}
 		cardNum = cardNum - 1;
 	    }
+	    
 	    //loop for player
 	    do
 	    {
@@ -403,8 +400,7 @@ public class ICSCul_Jane
 	}
 
     }
-
-
+    
     public static void drawCard_dealer (Vector u)  //set the positions for dealer's card images
     {
 	int y = 0; //x-coordinates for images of the dealer's cards
@@ -414,8 +410,7 @@ public class ICSCul_Jane
 	    y += 70; //ready for next position
 	}
     }
-
-
+    
     public static void drawCard_dealerFront (Vector p)
     {
 	int z = 0;
@@ -425,8 +420,6 @@ public class ICSCul_Jane
 	    z += 70; //ready for next position
 	}
     }
-
-
 
     public static void feedBack (double restMoney)  //display the feed back for player
     {
@@ -440,33 +433,30 @@ public class ICSCul_Jane
 	if (restMoney < 0) //display the feed back based on the rest money
 	{
 	    c.println (feedBack [0]);
-	} //display the feed back
+	} 
 	else
 	    if (restMoney < 5)
 	    {
 		c.println (feedBack [1]);
-	    } //display the feed back
+	    } 
 	    else
 		if (restMoney < 10)
 		{
 		    c.println (feedBack [2]);
-		} //display the feed back
+		} 
 		else
 		    if (restMoney < 20)
 		    {
 			c.println (feedBack [3]);
-		    } //display the feed back
+		    } 
 		    else
 			if (restMoney < 30)
 			{
 			    c.println (feedBack [4]);
-			} //display the feed back
+			} 
 			else
 			{
 			    c.println (feedBack [5]);
-			} //display the feed back
+			} 
     }
-
-
-
 } // ICSCul_Jane class

@@ -26,16 +26,15 @@ public class ICSCul_Jane
 	double wager; //player's wager on the game
 
 	//Display basic information
-	c.println ("hello! welcome to the game of BLACK JACK!");
-	c.println ("The aim of this game is to get the closest number to 21 without exceeding it");
-	c.println ("Your rival is the computer");
-	c.println ("You can wage at the beginning of the game between 0 and 10");
-
+	c.println ("Hello! welcome to the game of BLACK JACK!");
+	c.println ("Your rival is the computer, your goal is to get the closest number to 21 without exceeding it");
+	c.println ("You can wage at the beginning of the game between 0 and 10, the money will carry on if you choose to continue");
+	c.println("The game begins, enjoy!")
 	c.readChar ();
-	c.println ("what's your name,please?");
+	c.println ("What's your name?");
 	playerName = c.readLine (); 
 	c.println ();
-	c.println ("hello " + playerName + ", how much money would you like to get to wage?");
+	c.println ("Hello " + playerName + ", how much money would you like to get to wage?");
 	wager = c.readDouble (); 
 	while (wager < 0 || wager > 10) //force to enter a number between 0 and 10
 	{
@@ -43,8 +42,6 @@ public class ICSCul_Jane
 	    wager = c.readDouble (); 
 	}
 	c.println ();
-	c.println ("the game starts, good luck!");
-	c.readChar ();
 
 	//initializes card names and card points
 	for (int i = 0 ; i < 13 ; i++) //Hearts
